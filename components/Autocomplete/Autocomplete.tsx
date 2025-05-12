@@ -47,7 +47,7 @@ export default function Autocomplete() {
       {loading && <div className="loading">Loading...</div>}{" "}
       <div className="autocomplete-suggestions">
         <ul>
-          {images.map((image) => (
+          {images?.map((image) => (
             <li key={image.id}>{image.slug}</li>
           ))}
         </ul>

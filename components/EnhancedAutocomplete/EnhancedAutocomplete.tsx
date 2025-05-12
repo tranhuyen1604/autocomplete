@@ -14,7 +14,7 @@ import "./EnhancedAutocomplete.css";
 const DebounceTime = 500;
 
 export default function SearchBar() {
-  const [results, setResults] = useState<Image[]>([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -29,7 +29,7 @@ export default function SearchBar() {
         distinctUntilChanged(),
         switchMap(async (searchTerm: string) => {
           if (!searchTerm.trim()) {
-            setResults([]);
+            setImages([]);
             return [];
           }
 
@@ -37,11 +37,11 @@ export default function SearchBar() {
 
           try {
             const response = await searchImages(searchTerm);
-            setResults(response);
+            setImages(response);
             return response;
           } catch (err) {
-            console.error("Error fetching search results:", err);
-            setResults([]);
+            console.error("Error fetching search images:", err);
+            setImages([]);
             return [];
           } finally {
             setIsLoading(false);
@@ -68,17 +68,17 @@ export default function SearchBar() {
       />
 
       {isLoading && <div className="loading">Searching...</div>}
-      <div className="results">
-        {results.length > 0 ? (
+      <div className="images">
+        {images?.length > 0 ? (
           <ul>
-            {results.map((item) => (
+            {images?.map((item) => (
               <li key={item.id}>
                 <h3>{item.slug}</h3>
               </li>
             ))}
           </ul>
         ) : (
-          !isLoading && <div className="no-results">No data</div>
+          !isLoading && <div className="no-images">No data</div>
         )}
       </div>
     </div>
