@@ -1,8 +1,9 @@
 import axios from "axios";
+import config from "../config";
 
 const searchImages = async (term: string) => {
   const response = await axios.get(
-    `${process.env.REACT_APP_API_BASE_URL}/search/photos`,
+    `${config.unsplash}/search/photos`,
     {
       headers: {
         Authorization: process.env.REACT_APP_API_KEY || "",
