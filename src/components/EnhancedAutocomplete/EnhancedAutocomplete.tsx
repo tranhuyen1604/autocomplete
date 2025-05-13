@@ -7,9 +7,9 @@ import {
   map,
   catchError,
 } from "rxjs/operators";
-import searchImages from "../../service/api";
-import { Image } from "../../types/images";
 import "./EnhancedAutocomplete.css";
+import { Image } from "../../types/images";
+import searchImages from "../../service/api";
 
 const DebounceTime = 500;
 
@@ -60,6 +60,7 @@ export default function SearchBar() {
 
   return (
     <div className="enhanced-autocomplete">
+      <label htmlFor="search">Enhanced Autocomplete:</label>
       <input
         type="text"
         ref={searchInputRef}

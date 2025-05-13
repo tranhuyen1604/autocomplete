@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import debounce from "lodash/debounce";
 import "./Autocomplete.css";
-import searchImages from "../../service/api";
 import { Image } from "../../types/images";
+import searchImages from "../../service/api";
 
 export default function Autocomplete() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,8 +36,11 @@ export default function Autocomplete() {
     }
   }, [searchTerm]);
 
+  console.log("API Key:", import.meta.env.REACT_APP_API_KEY);
+
   return (
     <div className="autocomplete">
+      <label htmlFor="search">Autocomplete:</label>
       <input
         type="text"
         placeholder="Type to search..."
