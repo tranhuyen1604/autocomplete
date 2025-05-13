@@ -78,7 +78,7 @@ export default function SearchBar() {
             ))}
           </ul>
         ) : (
-          !isLoading && <div className="no-images">No data</div>
+          !isLoading && <div className="no-images">No available</div>
         )}
       </div>
     </div>
