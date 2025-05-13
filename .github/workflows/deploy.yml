@@ -24,7 +24,7 @@ jobs:
         run: npm run build
         
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel pull --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
 
       - name: Deploy to Vercel
         env:
