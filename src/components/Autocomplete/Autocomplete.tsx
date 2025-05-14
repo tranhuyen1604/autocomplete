@@ -36,8 +36,6 @@ export default function Autocomplete() {
     }
   }, [searchTerm]);
 
-  console.log("API Key:", import.meta.env.REACT_APP_API_KEY);
-
   return (
     <div className="autocomplete">
       <label htmlFor="search">Autocomplete:</label>
